@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>#{str.storeFormTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="contenido">
+			<h2>#{str.storeFormHeader}</h2>
+			<p:fieldset legend="#{str.storeLegendForm}">
+				<h:form>
+					<h:panelGrid columns="5">
+					
+						<p:inputText placeholder="#{str.storeNamePrompt}"
+							value="#{storeBean.store.name}" 
+							style="padding-top:0px; height:24px" ></p:inputText>
+						<p:inputText placeholder="#{str.storeAddressPrompt}"
+							value="#{storeBean.store.address}" 
+							style="padding-top:0px; height:24px" ></p:inputText>
+							<p:inputText placeholder="#{str.storePhonePrompt}"
+							value="#{storeBean.store.phone}" 
+							style="padding-top:0px; height:24px" ></p:inputText>
+							
+							
+						<p:selectOneMenu value="#{storeBean.store.distributer.id}" style="height:29px">
+							<f:selectItems value="#{storeBean.distributers}" var="s"
+								itemLabel="#{s.name}" itemValue="#{s.id}"></f:selectItems>
+						</p:selectOneMenu>
+						
+						</h:panelGrid>
+						<p:commandButton value="#{str.buttonSave}"
+							action="#{storeBean.guardar()}"></p:commandButton>
+						<p:commandButton value="#{str.buttonDelete}"
+							action="#{storeBean.eliminar()}"></p:commandButton>
+						<p:commandButton value="#{str.buttonCancel}"
+							action="#{storeBean.cancelar()}"></p:commandButton>
+					
+				</h:form>
+			</p:fieldset>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

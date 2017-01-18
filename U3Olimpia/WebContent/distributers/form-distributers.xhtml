@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>#{str.distributerFormTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="contenido">
+			<h2>#{str.distributerFormHeader}</h2>
+			<p:fieldset legend="#{str.distributerLegendForm}">
+				<h:form>
+					<h:panelGrid columns="1">
+						<p:inputText placeholder="#{str.distributerNamePrompt}"
+							value="#{distributerBean.distributer.name}"></p:inputText>
+
+						<p:inputText placeholder="#{str.distributerAddressPrompt}"
+							value="#{distributerBean.distributer.address}"></p:inputText>
+						<p:inputText placeholder="#{str.distributerPhonePrompt}"
+							value="#{distributerBean.distributer.phone}"></p:inputText>
+						<p:inputText placeholder="#{str.distributerMobilePrompt}"
+							value="#{distributerBean.distributer.mobile}"></p:inputText>
+
+					</h:panelGrid>
+					<p:commandButton value="#{str.buttonSave}"
+						action="#{distributerBean.guardar()}"></p:commandButton>
+					<p:commandButton value="#{str.buttonDelete}"
+						action="#{distributerBean.eliminar()}"></p:commandButton>
+					<p:commandButton value="#{str.buttonCancel}"
+						action="#{distributerBean.cancelar()}"></p:commandButton>
+				</h:form>
+			</p:fieldset>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
